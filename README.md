@@ -76,9 +76,21 @@ PORT_MAP = {
 }
 ```
 
+Renseignez le nom de la passerelle à la ligne 171 :
+```Python
+(...)
+    for entry in entries:
+        writer.writerow({
+            "SOURCE": safe_value(entry.get("source"), "source"),
+            "PASSERELLE": "NOM_DE_LA_PASSERELL/"+safe_value(entry.get("interface"), "interface"),
+            "ACTION": safe_value(entry.get("type")),
+(...)
+```
+
 ## 🚀 Utilisation
 
 Lancez le script **pyfrc2g.py**. Le script génèrera alors un fichier CSV qui sera parsé dans la foulée afin de générer un fichier *.gv* par interface présente sur pfSense puis de générer un rendu au format PNG.
+Ces fichiers sont nommés avec le nom de la passerelle et 
 
 Notes :
 * Lors de la récupération des hôtes de destination, l'API de pfSense ne permet pas de connaitre le réseau dans lequel se situe celui-ci. J'ai donc commenté mes hôtes de destination sur pfSense en renseignant dans quel VLAN était celui-ci.
