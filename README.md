@@ -48,10 +48,6 @@ Configurez ensuite vos interfaces, les réseaux, les adresses des interfaces et 
 
 Exemple :
 ```python
-# --- CONFIG ---
-PFS_URL = "https://pfs01.domaine.lan/api/v2/firewall/rules"
-PFS_TOKEN = "VOTRE_CLE_GENEREE_AVEC_PFSENSE_REST_API"
-```
 INTERFACE_MAP = {
     "wan": "WAN",
     "lan": "ADMINISTRATION",
@@ -76,3 +72,4 @@ ADDRESS_MAP = {
 PORT_MAP = {
     "WEB_ACCESS": "80/443"
 }
+```
