@@ -1,6 +1,6 @@
 # PyFRC2G
 
-Script python de conversion de règles firewall **PfSense** en graphique.
+Scripts python de conversion de règles firewall **PfSense** et **OPNSense** en vision graphique des flux.
 
 ![rules](./img/convert-rules-to-graph.png)
 
@@ -14,8 +14,9 @@ Le script a été codé pour répondre à deux objectifs :
 
 * Script basé sur **Python** (développé et testé sur GNU/Linux).
 * Utilisation de l'API de pfSense fournie par [pfSense REST API Package](https://pfrest.org/).
+* Utilisation de l'API intégrée d'OPNSense.
 * Génération des flux graphiques avec la bibliothèque python **Graphviz**.
-* Génération d'un fichier PNG par interface.
+* Génération d'un fichier PDF A4 avec une page par interface.
 * Distinction entre un VLAN/réseau de destination et un hôte de destination.
 * Mapping des interfaces, des ports et des destnations.
 * Coloration pour les actions PASS et BLOCK.
@@ -28,14 +29,14 @@ Le script a été codé pour répondre à deux objectifs :
 Installation des bibliothèques Python :
 
 ```Bash
-pip install requests graphviz
+pip install requests graphviz reportlab
 ```
-
+2. pfSense
 Installation de **pfSense REST API Package** : [https://github.com/jaredhendrickson13/pfsense-api?tab=readme-ov-file#quickstart](https://github.com/jaredhendrickson13/pfsense-api?tab=readme-ov-file#quickstart)
 
 Une fois le paquet **pfSense REST API** installé, configurez la ou les interface(s) d'écoute sur **pfSense** puis générez une clé qui nous servira pour l'authentification à l'API. 
 
-2. Configuration du script
+3. Configuration du script
 
 Récupérez les fichiers **pyfrc2g.py** et **config.py**.
 
