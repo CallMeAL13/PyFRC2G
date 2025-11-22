@@ -154,3 +154,4 @@ CISO_EVIDENCE = f"{CISO_URL}/api/evidences/<EVIDENCE_ID>/upload/"
 * Insérer le VLAN de destination devant un hôte de destination.
 * ~~Faire la même chose avec OPNSense~~.
 * (en cours) Envoyez les preuves dans [CISO Assistant](https://intuitem.com/fr/ciso-assistant/).
+* Reprendre les horodatages sur la création/modification des règles ainsi que l'auteur.
