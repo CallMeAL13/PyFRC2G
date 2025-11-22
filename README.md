@@ -127,12 +127,13 @@ NET_MAP = {
 
 1. Utilisation de base
 
-Lancez le script **pyfrc2g.py**. Le script génèrera alors un fichier final PDF. Chaque page est nommée avec le nom de la passerelle et l'interface dans le répertoire fin de faciliter la navigation dans le fichier.
-Si aucune règle n'a été ajoutée ou modifiée, le script ne regénère pas de fichier PDF.
+Lancez le script **pyfrc2g.py**. Le script génèrera alors un fichier final PDF (après être passé par plusieurs fichiers intermédiaires qui sont supprimés une fois l'exécution du script terminée). Chaque page est nommée avec le nom de la passerelle et l'interface dans le répertoire fin de faciliter la navigation dans le fichier.
+
+Si aucune règle n'a été ajoutée ou modifiée, le script ne regénère pas de fichier PDF (le script s'appuie sur comparaison de la somme md5sum entre la version précédent du CSV générée et la version en cours).
 
 2. Utilisation avec CISO Assistant
 
-Récupérez les fichiers **pyfrc2g-ciso_assist.py** et **config.py** correspondant à votre passerelle (pfSense ou OPNSense).
+Récupérez les fichiers **pyfrc2g-ciso_assist.py**, **config.py** et **md5sum.txt** correspondant à votre passerelle (pfSense ou OPNSense).
 
 Configurez les paramètres d'accès à votre passerelle comme vu plus haut puis renseignez la partie CISO Assistant :
 ```python
