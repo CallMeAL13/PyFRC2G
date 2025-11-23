@@ -22,7 +22,7 @@ Le script a été codé pour répondre à deux objectifs :
 * Mapping des interfaces, des ports et des destnations.
 * Coloration pour les actions PASS et BLOCK.
 * Coloration pour les règles présentes mais désactivées.
-* Export possible dans **[CISO Assistant](https://intuitem.com/fr/ciso-assistant/)** sous forme de révision afin de conserver l'historique des fichiers poussés.
+* Export possible du fichier PDF généré dans la preuve associée sur **[CISO Assistant](https://intuitem.com/fr/ciso-assistant/)** sous forme de révision afin de conserver l'historique des fichiers poussés.
 
 ## 💾 Installation
 
