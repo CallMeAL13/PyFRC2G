@@ -36,6 +36,7 @@ pip install requests graphviz reportlab
 ```
 
 2. pfSense
+
 Install **pfSense REST API Package**: [https://github.com/jaredhendrickson13/pfsense-api?tab=readme-ov-file#quickstart](https://github.com/jaredhendrickson13/pfsense-api?tab=readme-ov-file#quickstart)
 
 Once the **pfSense REST API** package is installed, configure the listening interface(s) on **pfSense**, then generate a key that will be used for API authentication.
