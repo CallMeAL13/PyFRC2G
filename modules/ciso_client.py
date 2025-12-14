@@ -26,7 +26,9 @@ class CISOCClient:
         self.config = config
         self.ciso_url = getattr(config, 'ciso_url', None)
         self.ciso_token = getattr(config, 'ciso_token', None)
-        self.ciso_evidence_url = getattr(config, 'ciso_evidence_url', None)
+        self.ciso_evidence_path = getattr(config, 'ciso_evidence_path', None)
+        self.ciso_folder_id = getattr(config, 'ciso_folder_id', None)
+        self.ciso_evidence_id = getattr(config, 'ciso_evidence_id', None)
         
         # Check if CISO Assistant is configured
         self.enabled = (
@@ -34,8 +36,11 @@ class CISOCClient:
             self.ciso_url != "https://<CISO_ASSISTANT_ADDRESS>" and
             self.ciso_token and 
             self.ciso_token != "<CISO_ASSISTANT_TOKEN>" and
-            self.ciso_evidence_url and
-            self.ciso_evidence_url != f"{self.ciso_url}/api/evidences/<EVIDENCE_ID>/upload/"
+            self.ciso_evidence_path and
+            self.ciso_folder_id and
+            self.ciso_folder_id != "<CISO_FOLDER_ID>" and
+            self.ciso_evidence_id and
+            self.ciso_evidence_id != "<CISO_EVIDENCE_ID>"
         )
         
         if not self.enabled:
@@ -68,7 +73,14 @@ class CISOCClient:
             
             with open(pdf_path, 'rb') as pdf_file:
                 files = {
-                    'file': (pdf_filename, pdf_file, 'application/pdf')
+                    'attachment': (pdf_filename, pdf_file, 'application/pdf')
+                }
+                
+                data = {
+                    "is_published": True,
+                    "observation": "Automatically generated evidence",
+                    "folder": self.ciso_folder_id,
+                    "evidence": self.ciso_evidence_id
                 }
                 
                 headers = {
@@ -79,6 +91,7 @@ class CISOCClient:
                 response = requests.post(
                     self.ciso_evidence_url,
                     files=files,
+                    data=data,
                     headers=headers,
                     verify=False,  # CISO Assistant might use self-signed certificates
                     timeout=60  # Large files might take time
